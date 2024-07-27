@@ -39,7 +39,9 @@ const Index = () => {
           </Button>
         </div>
         <div className="mt-16">
-          <img src="/placeholder.svg" alt="Roadmap Graph" className="mx-auto object-cover w-full h-[400px]" />
+          <div className="w-full h-[400px] bg-gray-800 rounded-lg flex items-center justify-center text-gray-400">
+            Graph Placeholder
+          </div>
         </div>
       </main>
     </div>
