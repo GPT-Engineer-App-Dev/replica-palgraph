@@ -1,6 +1,92 @@
 import React from 'react';
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import theme from 'prism-react-renderer/themes/nightOwl';
+
+const CodeBlock = ({ code }) => (
+  <Highlight {...defaultProps} theme={theme} code={code} language="python">
+    {({ className, style, tokens, getLineProps, getTokenProps }) => (
+      <pre className={`${className} p-4 rounded-lg overflow-x-auto`} style={style}>
+        {tokens.map((line, i) => (
+          <div {...getLineProps({ line, key: i })}>
+            {line.map((token, key) => (
+              <span {...getTokenProps({ token, key })} />
+            ))}
+          </div>
+        ))}
+      </pre>
+    )}
+  </Highlight>
+);
 
 const PythonCheatSheet = () => {
+  const variablesCode = `
+# Variables are dynamically typed
+n = 0
+print('n =', n)
+>>> n = 0
+
+n = "abc"
+print('n =', n)
+>>> n = abc
+
+# Multiple assignments
+n, m = 0, "abc"
+n, m, z = 0.125, "abc", False
+  `.trim();
+
+  const dataStructuresCode = `
+# Lists
+fruits = ['apple', 'banana', 'cherry']
+fruits.append('date')
+print(fruits[0])  # Output: apple
+
+# Dictionaries
+person = {'name': 'John', 'age': 30}
+print(person['name'])  # Output: John
+
+# Sets
+unique_numbers = {1, 2, 3, 3, 4}
+print(unique_numbers)  # Output: {1, 2, 3, 4}
+
+# Tuples (immutable)
+coordinates = (10, 20)
+  `.trim();
+
+  const controlFlowCode = `
+# If statement
+x = 10
+if x > 5:
+    print("x is greater than 5")
+elif x == 5:
+    print("x is equal to 5")
+else:
+    print("x is less than 5")
+
+# For loop
+for i in range(5):
+    print(i)
+
+# While loop
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+  `.trim();
+
+  const functionsCode = `
+# Function definition
+def greet(name):
+    return f"Hello, {name}!"
+
+# Function call
+message = greet("Alice")
+print(message)  # Output: Hello, Alice!
+
+# Lambda function
+square = lambda x: x ** 2
+print(square(4))  # Output: 16
+  `.trim();
+
   return (
     <div className="container mx-auto px-4 py-8 bg-gray-900 text-white">
       <div className="mb-8">
@@ -19,22 +105,22 @@ const PythonCheatSheet = () => {
       
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Variables</h2>
-        <pre className="bg-gray-800 p-4 rounded-lg overflow-x-auto">
-          <code className="text-sm">
-{`# Variables are dynamicly typed
-n = 0
-print('n =', n)
->>> n = 0
+        <CodeBlock code={variablesCode} />
+      </section>
 
-n = "abc"
-print('n =', n)
->>> n = abc
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Data Structures</h2>
+        <CodeBlock code={dataStructuresCode} />
+      </section>
 
-# Multiple assignments
-n, m = 0, "abc"
-n, m, z = 0.125, "abc", False`}
-          </code>
-        </pre>
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Control Flow</h2>
+        <CodeBlock code={controlFlowCode} />
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Functions</h2>
+        <CodeBlock code={functionsCode} />
       </section>
     </div>
   );
