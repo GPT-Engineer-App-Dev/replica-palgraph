@@ -1,24 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, ChevronUp, ChevronDown } from 'lucide-react';
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 
 const SlidingPanel = ({ isOpen, onClose, topic }) => {
   const [problems, setProblems] = useState([
-    { name: "Reverse Linked List", difficulty: "Easy" },
-    { name: "Merge Two Sorted Lists", difficulty: "Easy" },
-    { name: "Reorder List", difficulty: "Medium" },
-    { name: "Remove Nth Node From End of List", difficulty: "Medium" },
-    { name: "Copy List With Random Pointer", difficulty: "Medium" },
-    { name: "Add Two Numbers", difficulty: "Medium" },
-    { name: "Linked List Cycle", difficulty: "Easy" },
-    { name: "Find The Duplicate Number", difficulty: "Medium" },
-    { name: "LRU Cache", difficulty: "Medium" },
-    { name: "Merge K Sorted Lists", difficulty: "Hard" },
-    { name: "Reverse Nodes in K Group", difficulty: "Hard" },
+    { id: 1, name: "Reverse Linked List", difficulty: "Easy", completed: false },
+    { id: 2, name: "Merge Two Sorted Lists", difficulty: "Easy", completed: false },
+    { id: 3, name: "Reorder List", difficulty: "Medium", completed: false },
+    { id: 4, name: "Remove Nth Node From End of List", difficulty: "Medium", completed: false },
+    { id: 5, name: "Copy List With Random Pointer", difficulty: "Medium", completed: false },
+    { id: 6, name: "Add Two Numbers", difficulty: "Medium", completed: false },
+    { id: 7, name: "Linked List Cycle", difficulty: "Easy", completed: false },
+    { id: 8, name: "Find The Duplicate Number", difficulty: "Medium", completed: false },
+    { id: 9, name: "LRU Cache", difficulty: "Medium", completed: false },
+    { id: 10, name: "Merge K Sorted Lists", difficulty: "Hard", completed: false },
+    { id: 11, name: "Reverse Nodes in K Group", difficulty: "Hard", completed: false },
   ]);
 
   const [sortConfig, setSortConfig] = useState({ key: null, direction: 'ascending' });
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const completedCount = problems.filter(problem => problem.completed).length;
+    const newProgress = Math.round((completedCount / problems.length) * 100);
+    setProgress(newProgress);
+  }, [problems]);
 
   const sortBy = (key) => {
     let direction = 'ascending';
@@ -43,6 +50,12 @@ const SlidingPanel = ({ isOpen, onClose, topic }) => {
     return <><ChevronUp className="h-4 w-4" /><ChevronDown className="h-4 w-4" /></>;
   };
 
+  const handleCheckboxChange = (problemId) => {
+    setProblems(problems.map(problem =>
+      problem.id === problemId ? { ...problem, completed: !problem.completed } : problem
+    ));
+  };
+
   return (
     <div className={`fixed inset-y-0 right-0 w-4/5 bg-gray-900 text-white transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out overflow-y-auto`}>
       <div className="p-6">
@@ -54,8 +67,8 @@ const SlidingPanel = ({ isOpen, onClose, topic }) => {
         </div>
         <div className="mb-6">
           <h3 className="text-xl mb-2">Progress</h3>
-          <Progress value={0} max={11} className="h-2 bg-gray-700" indicatorClassName="bg-blue-500" />
-          <p className="text-sm mt-1">(0 / 11)</p>
+          <Progress value={progress} max={100} className="h-2 bg-gray-700" indicatorClassName="bg-blue-500" />
+          <p className="text-sm mt-1">({problems.filter(p => p.completed).length} / {problems.length})</p>
         </div>
         <div className="mb-6">
           <h3 className="text-xl mb-2">Prerequisites</h3>
@@ -98,9 +111,15 @@ const SlidingPanel = ({ isOpen, onClose, topic }) => {
               </tr>
             </thead>
             <tbody>
-              {problems.map((problem, index) => (
-                <tr key={index} className="border-t border-gray-800">
-                  <td className="py-2"><input type="checkbox" /></td>
+              {problems.map((problem) => (
+                <tr key={problem.id} className="border-t border-gray-800">
+                  <td className="py-2">
+                    <input
+                      type="checkbox"
+                      checked={problem.completed}
+                      onChange={() => handleCheckboxChange(problem.id)}
+                    />
+                  </td>
                   <td><span className="text-yellow-500">★</span></td>
                   <td>{problem.name}</td>
                   <td className={problem.difficulty === 'Easy' ? 'text-green-500' : problem.difficulty === 'Medium' ? 'text-yellow-500' : 'text-red-500'}>
