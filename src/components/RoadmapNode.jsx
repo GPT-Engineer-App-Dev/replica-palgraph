@@ -1,30 +1,15 @@
 import React from 'react';
-import { Handle } from 'react-flow-renderer';
-import { Progress } from "@/components/ui/progress"
+import { Handle, Position } from 'reactflow';
 
 const RoadmapNode = ({ data }) => {
   return (
-    <div className="relative">
-      <Handle 
-        type="target" 
-        position="top" 
-        className="w-2 h-2 !bg-blue-500" 
-      />
-      <div className="bg-white rounded-md shadow-md p-2 z-10 relative">
-        <div className="text-blue-500 font-semibold mb-2">{data.label}</div>
+    <div className="bg-[#5468ff] text-white rounded-lg px-4 py-2 shadow-lg">
+      <Handle type="target" position={Position.Top} className="w-3 h-3 !bg-white" />
+      <div className="text-center font-semibold">{data.label}</div>
+      <div className="w-full bg-white/30 h-1 mt-1">
+        <div className="bg-white h-full" style={{ width: `${data.progress}%` }}></div>
       </div>
-      <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-64">
-        <Progress 
-          value={data.progress} 
-          className="h-1.5 bg-blue-200" 
-          indicatorClassName="bg-blue-500"
-        />
-      </div>
-      <Handle 
-        type="source" 
-        position="bottom" 
-        className="w-2 h-2 !bg-blue-500" 
-      />
+      <Handle type="source" position={Position.Bottom} className="w-3 h-3 !bg-white" />
     </div>
   );
 };
