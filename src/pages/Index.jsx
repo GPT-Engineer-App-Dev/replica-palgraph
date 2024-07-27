@@ -13,7 +13,14 @@ const Index = () => {
     <div className={`min-h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
       <header className="flex justify-between items-center p-4 border-b border-gray-700">
         <div className="flex items-center space-x-6">
-          <h1 className="text-2xl font-bold">NeetCode</h1>
+          <div className="flex items-center space-x-2">
+            <img 
+              src="https://neetcode.io/assets/neetcode-io-logo.png" 
+              alt="NeetCode Logo" 
+              className="w-8 h-8 transition-transform duration-300 ease-in-out hover:rotate-[15deg]"
+            />
+            <h1 className="text-2xl font-bold">NeetCode</h1>
+          </div>
           <nav>
             <ul className="flex space-x-4">
               <li><a href="#" className="hover:text-gray-300">Courses</a></li>
