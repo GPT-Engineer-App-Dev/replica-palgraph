@@ -67,7 +67,7 @@ const SlidingPanel = ({ isOpen, onClose, topic }) => {
         </div>
         <div className="mb-6">
           <h3 className="text-xl mb-2">Progress</h3>
-          <Progress value={progress} max={100} className="h-2 bg-gray-700" indicatorClassName="bg-blue-500" />
+          <Progress value={progress} max={100} className="h-2 bg-gray-700" indicatorClassName="bg-green-500" />
           <p className="text-sm mt-1">({problems.filter(p => p.completed).length} / {problems.length})</p>
         </div>
         <div className="mb-6">
