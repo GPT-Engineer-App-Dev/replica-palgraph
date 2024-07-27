@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactFlow, { Background, Controls, MarkerType } from 'reactflow';
 import 'reactflow/dist/style.css';
 import RoadmapNode from '@/components/RoadmapNode';
 import Sidebar from '@/components/Sidebar';
+import SlidingPanel from '@/components/SlidingPanel';
 
 const nodeTypes = {
   roadmapNode: RoadmapNode,
@@ -53,6 +54,14 @@ const initialEdges = [
 ];
 
 const Roadmap = () => {
+  const [isPanelOpen, setIsPanelOpen] = useState(false);
+  const [selectedTopic, setSelectedTopic] = useState('');
+
+  const onNodeClick = (event, node) => {
+    setSelectedTopic(node.data.label);
+    setIsPanelOpen(true);
+  };
+
   return (
     <div className="flex" style={{ width: '100%', height: '100vh', background: '#1e1e1e' }}>
       <div className="flex-grow">
@@ -63,6 +72,7 @@ const Roadmap = () => {
           fitView
           minZoom={0.1}
           maxZoom={1.5}
+          onNodeClick={onNodeClick}
           defaultEdgeOptions={{
             style: { stroke: 'white', strokeWidth: 2 },
             type: 'default',
@@ -78,6 +88,7 @@ const Roadmap = () => {
         </ReactFlow>
       </div>
       <Sidebar />
+      <SlidingPanel isOpen={isPanelOpen} onClose={() => setIsPanelOpen(false)} topic={selectedTopic} />
     </div>
   );
 };
