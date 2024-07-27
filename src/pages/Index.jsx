@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun, Flame } from "lucide-react";
 import { useState } from "react";
 
 const Index = () => {
@@ -29,7 +29,10 @@ const Index = () => {
           </nav>
         </div>
         <div className="flex items-center space-x-4">
-          <Button variant="outline" className="bg-green-700 text-white hover:bg-green-600">Pro</Button>
+          <Button variant="outline" className="bg-green-700 text-white hover:bg-green-600 flex items-center gap-2">
+            <Flame className="h-4 w-4" />
+            Pro
+          </Button>
           <Button variant="ghost" onClick={toggleDarkMode}>
             {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </Button>
