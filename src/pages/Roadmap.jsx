@@ -6,26 +6,27 @@ import ReactFlow, {
   useNodesState, 
   useEdgesState 
 } from 'react-flow-renderer';
+import RoadmapNode from '@/components/RoadmapNode';
 
 const initialNodes = [
-  { id: '1', position: { x: 400, y: 0 }, data: { label: 'Arrays & Hashing' } },
-  { id: '2', position: { x: 200, y: 100 }, data: { label: 'Two Pointers' } },
-  { id: '3', position: { x: 600, y: 100 }, data: { label: 'Stack' } },
-  { id: '4', position: { x: 0, y: 200 }, data: { label: 'Binary Search' } },
-  { id: '5', position: { x: 200, y: 200 }, data: { label: 'Sliding Window' } },
-  { id: '6', position: { x: 400, y: 200 }, data: { label: 'Linked List' } },
-  { id: '7', position: { x: 400, y: 300 }, data: { label: 'Trees' } },
-  { id: '8', position: { x: 200, y: 400 }, data: { label: 'Tries' } },
-  { id: '9', position: { x: 400, y: 400 }, data: { label: 'Heap / Priority Queue' } },
-  { id: '10', position: { x: 600, y: 400 }, data: { label: 'Backtracking' } },
-  { id: '11', position: { x: 200, y: 500 }, data: { label: 'Intervals' } },
-  { id: '12', position: { x: 400, y: 500 }, data: { label: 'Greedy' } },
-  { id: '13', position: { x: 600, y: 500 }, data: { label: 'Graphs' } },
-  { id: '14', position: { x: 800, y: 500 }, data: { label: '1-D DP' } },
-  { id: '15', position: { x: 600, y: 600 }, data: { label: 'Advanced Graphs' } },
-  { id: '16', position: { x: 800, y: 600 }, data: { label: '2-D DP' } },
-  { id: '17', position: { x: 1000, y: 600 }, data: { label: 'Bit Manipulation' } },
-  { id: '18', position: { x: 800, y: 700 }, data: { label: 'Math & Geometry' } },
+  { id: '1', position: { x: 400, y: 0 }, data: { label: 'Arrays & Hashing', progress: 75 } },
+  { id: '2', position: { x: 200, y: 100 }, data: { label: 'Two Pointers', progress: 60 } },
+  { id: '3', position: { x: 600, y: 100 }, data: { label: 'Stack', progress: 40 } },
+  { id: '4', position: { x: 0, y: 200 }, data: { label: 'Binary Search', progress: 30 } },
+  { id: '5', position: { x: 200, y: 200 }, data: { label: 'Sliding Window', progress: 20 } },
+  { id: '6', position: { x: 400, y: 200 }, data: { label: 'Linked List', progress: 50 } },
+  { id: '7', position: { x: 400, y: 300 }, data: { label: 'Trees', progress: 35 } },
+  { id: '8', position: { x: 200, y: 400 }, data: { label: 'Tries', progress: 15 } },
+  { id: '9', position: { x: 400, y: 400 }, data: { label: 'Heap / Priority Queue', progress: 25 } },
+  { id: '10', position: { x: 600, y: 400 }, data: { label: 'Backtracking', progress: 10 } },
+  { id: '11', position: { x: 200, y: 500 }, data: { label: 'Intervals', progress: 5 } },
+  { id: '12', position: { x: 400, y: 500 }, data: { label: 'Greedy', progress: 8 } },
+  { id: '13', position: { x: 600, y: 500 }, data: { label: 'Graphs', progress: 12 } },
+  { id: '14', position: { x: 800, y: 500 }, data: { label: '1-D DP', progress: 18 } },
+  { id: '15', position: { x: 600, y: 600 }, data: { label: 'Advanced Graphs', progress: 3 } },
+  { id: '16', position: { x: 800, y: 600 }, data: { label: '2-D DP', progress: 7 } },
+  { id: '17', position: { x: 1000, y: 600 }, data: { label: 'Bit Manipulation', progress: 22 } },
+  { id: '18', position: { x: 800, y: 700 }, data: { label: 'Math & Geometry', progress: 28 } },
 ];
 
 const initialEdges = [
@@ -51,15 +52,6 @@ const initialEdges = [
   { id: 'e17-18', source: '17', target: '18' },
 ];
 
-const nodeStyle = {
-  background: '#4338ca',
-  color: 'white',
-  border: '1px solid #3730a3',
-  width: 180,
-  borderRadius: '8px',
-  padding: '10px',
-};
-
 const Roadmap = () => {
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
   const [edges, , onEdgesChange] = useEdgesState(initialEdges);
@@ -72,11 +64,7 @@ const Roadmap = () => {
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         nodeTypes={{
-          default: (props) => (
-            <div style={nodeStyle}>
-              {props.data.label}
-            </div>
-          ),
+          default: RoadmapNode,
         }}
         fitView
       >
