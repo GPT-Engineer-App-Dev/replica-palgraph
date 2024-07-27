@@ -8,11 +8,14 @@ const nodeTypes = {
 };
 
 const initialNodes = [
-  { id: '1', type: 'roadmapNode', position: { x: 50, y: 0 }, data: { label: 'Arrays & Hashing', progress: 75 } },
-  { id: '2', type: 'roadmapNode', position: { x: 0, y: 50 }, data: { label: 'Two Pointers', progress: 60 } },
-  { id: '3', type: 'roadmapNode', position: { x: 100, y: 50 }, data: { label: 'Stack', progress: 40 } },
-  { id: '4', type: 'roadmapNode', position: { x: 0, y: 100 }, data: { label: 'Binary Search', progress: 30 } },
-  { id: '5', type: 'roadmapNode', position: { x: 100, y: 100 }, data: { label: 'Sliding Window', progress: 20 } },
+  { id: '1', type: 'roadmapNode', position: { x: 100, y: 0 }, data: { label: 'Arrays & Hashing', progress: 75 } },
+  { id: '2', type: 'roadmapNode', position: { x: 0, y: 75 }, data: { label: 'Two Pointers', progress: 60 } },
+  { id: '3', type: 'roadmapNode', position: { x: 200, y: 75 }, data: { label: 'Stack', progress: 40 } },
+  { id: '4', type: 'roadmapNode', position: { x: 0, y: 150 }, data: { label: 'Binary Search', progress: 30 } },
+  { id: '5', type: 'roadmapNode', position: { x: 200, y: 150 }, data: { label: 'Sliding Window', progress: 20 } },
+  { id: '6', type: 'roadmapNode', position: { x: 100, y: 225 }, data: { label: 'Linked List', progress: 50 } },
+  { id: '7', type: 'roadmapNode', position: { x: 0, y: 300 }, data: { label: 'Trees', progress: 35 } },
+  { id: '8', type: 'roadmapNode', position: { x: 200, y: 300 }, data: { label: 'Tries', progress: 15 } },
 ];
 
 const initialEdges = [
@@ -20,6 +23,10 @@ const initialEdges = [
   { id: 'e1-3', source: '1', target: '3', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
   { id: 'e2-4', source: '2', target: '4', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
   { id: 'e3-5', source: '3', target: '5', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e4-6', source: '4', target: '6', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e5-6', source: '5', target: '6', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e6-7', source: '6', target: '7', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e6-8', source: '6', target: '8', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
 ];
 
 const Index = () => {
@@ -38,20 +45,22 @@ const Index = () => {
           edges={initialEdges}
           nodeTypes={nodeTypes}
           fitView
-          minZoom={0.1}
-          maxZoom={1.5}
+          minZoom={0.5}
+          maxZoom={2}
           defaultEdgeOptions={{
-            style: { stroke: 'white', strokeWidth: 2 },
+            style: { stroke: 'white', strokeWidth: 1 },
             type: 'default',
             animated: true,
             markerEnd: {
               type: MarkerType.ArrowClosed,
               color: 'white',
+              width: 15,
+              height: 15,
             },
           }}
         >
           <Background color="#333" gap={16} />
-          <Controls />
+          <Controls showInteractive={false} />
         </ReactFlow>
       </div>
     </div>
