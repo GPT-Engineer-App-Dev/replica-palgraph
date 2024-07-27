@@ -1,10 +1,10 @@
-import React from 'react';
-import { X } from 'lucide-react';
+import React, { useState } from 'react';
+import { X, ChevronUp, ChevronDown } from 'lucide-react';
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 
 const SlidingPanel = ({ isOpen, onClose, topic }) => {
-  const problems = [
+  const [problems, setProblems] = useState([
     { name: "Reverse Linked List", difficulty: "Easy" },
     { name: "Merge Two Sorted Lists", difficulty: "Easy" },
     { name: "Reorder List", difficulty: "Medium" },
@@ -16,7 +16,32 @@ const SlidingPanel = ({ isOpen, onClose, topic }) => {
     { name: "LRU Cache", difficulty: "Medium" },
     { name: "Merge K Sorted Lists", difficulty: "Hard" },
     { name: "Reverse Nodes in K Group", difficulty: "Hard" },
-  ];
+  ]);
+
+  const [sortConfig, setSortConfig] = useState({ key: null, direction: 'ascending' });
+
+  const sortBy = (key) => {
+    let direction = 'ascending';
+    if (sortConfig.key === key && sortConfig.direction === 'ascending') {
+      direction = 'descending';
+    }
+    setSortConfig({ key, direction });
+
+    const sortedProblems = [...problems].sort((a, b) => {
+      if (a[key] < b[key]) return direction === 'ascending' ? -1 : 1;
+      if (a[key] > b[key]) return direction === 'ascending' ? 1 : -1;
+      return 0;
+    });
+
+    setProblems(sortedProblems);
+  };
+
+  const getSortIcon = (key) => {
+    if (sortConfig.key === key) {
+      return sortConfig.direction === 'ascending' ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />;
+    }
+    return <><ChevronUp className="h-4 w-4" /><ChevronDown className="h-4 w-4" /></>;
+  };
 
   return (
     <div className={`fixed inset-y-0 right-0 w-4/5 bg-gray-900 text-white transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out overflow-y-auto`}>
@@ -56,8 +81,12 @@ const SlidingPanel = ({ isOpen, onClose, topic }) => {
               <tr className="text-left">
                 <th className="py-2">Status</th>
                 <th>Star</th>
-                <th>Problem</th>
-                <th>Difficulty</th>
+                <th className="cursor-pointer" onClick={() => sortBy('name')}>
+                  Problem {getSortIcon('name')}
+                </th>
+                <th className="cursor-pointer" onClick={() => sortBy('difficulty')}>
+                  Difficulty {getSortIcon('difficulty')}
+                </th>
                 <th>Video Solution</th>
                 <th>Code</th>
               </tr>
