@@ -2,6 +2,7 @@ import React from 'react';
 import ReactFlow, { Background, Controls } from 'reactflow';
 import 'reactflow/dist/style.css';
 import RoadmapNode from '@/components/RoadmapNode';
+import Sidebar from '@/components/Sidebar';
 
 const nodeTypes = {
   roadmapNode: RoadmapNode,
@@ -53,23 +54,26 @@ const initialEdges = [
 
 const Roadmap = () => {
   return (
-    <div style={{ width: '100%', height: '100vh', background: '#1e1e1e' }}>
-      <ReactFlow
-        nodes={initialNodes}
-        edges={initialEdges}
-        nodeTypes={nodeTypes}
-        fitView
-        minZoom={0.1}
-        maxZoom={1.5}
-        defaultEdgeOptions={{
-          style: { stroke: 'white', strokeWidth: 2 },
-          type: 'smoothstep',
-          animated: true,
-        }}
-      >
-        <Background color="#333" gap={16} />
-        <Controls />
-      </ReactFlow>
+    <div className="flex" style={{ width: '100%', height: '100vh', background: '#1e1e1e' }}>
+      <div className="flex-grow">
+        <ReactFlow
+          nodes={initialNodes}
+          edges={initialEdges}
+          nodeTypes={nodeTypes}
+          fitView
+          minZoom={0.1}
+          maxZoom={1.5}
+          defaultEdgeOptions={{
+            style: { stroke: 'white', strokeWidth: 2 },
+            type: 'smoothstep',
+            animated: true,
+          }}
+        >
+          <Background color="#333" gap={16} />
+          <Controls />
+        </ReactFlow>
+      </div>
+      <Sidebar />
     </div>
   );
 };
