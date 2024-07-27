@@ -3,7 +3,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { ThemeProvider } from "@/components/theme-provider";
-import Layout from "./layouts/clean";
+import Layout from "./layouts/navbar";
 import { navItems } from "./nav-items";
 
 const queryClient = new QueryClient();
