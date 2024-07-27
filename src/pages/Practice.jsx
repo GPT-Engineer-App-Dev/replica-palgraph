@@ -92,10 +92,22 @@ const Practice = () => {
       </div>
 
       <div className="flex space-x-4 mb-8">
-        <Button variant="outline">📊 Algorithms</Button>
-        <Button variant="outline">🌳 Data Structures</Button>
-        <Button variant="outline">🧩 Design Patterns</Button>
-        <Button variant="outline">🤖 Machine Learning</Button>
+        <Button variant="outline" className="bg-gray-800 hover:bg-gray-700 text-white border-none px-4 py-2 rounded-full">
+          <span className="text-yellow-400 mr-2">▌│║</span>
+          Algorithms
+        </Button>
+        <Button variant="outline" className="bg-gray-800 hover:bg-gray-700 text-white border-none px-4 py-2 rounded-full">
+          <span className="text-green-400 mr-2">🌲</span>
+          Data Structures
+        </Button>
+        <Button variant="outline" className="bg-gray-800 hover:bg-gray-700 text-white border-none px-4 py-2 rounded-full">
+          <span className="text-purple-400 mr-2">🔧</span>
+          Design Patterns
+        </Button>
+        <Button variant="outline" className="bg-gray-800 hover:bg-gray-700 text-white border-none px-4 py-2 rounded-full">
+          <span className="text-orange-400 mr-2">🤖</span>
+          Machine Learning
+        </Button>
       </div>
 
       <h3 className="text-xl font-semibold mb-4">Implement Data Structures</h3>
