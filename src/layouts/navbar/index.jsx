@@ -16,7 +16,7 @@ const Layout = () => {
         <div className="flex items-center space-x-6">
           <div className="flex items-center space-x-2">
             <img 
-              src="/placeholder.svg"
+              src="https://neetcode.io/assets/neetcode-io-logo.png"
               alt="NeetCode Logo" 
               className="w-8 h-8 transition-transform duration-300 ease-in-out hover:rotate-[15deg]"
             />
