@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ChevronDown, LayoutGrid, Play, HelpCircle } from 'lucide-react';
+import { ChevronDown, LayoutGrid, Play, HelpCircle, Trash2 } from 'lucide-react';
 
 const ProblemRow = ({ status, problem, difficulty, isPremium }) => (
   <div className="flex items-center py-2 border-b border-gray-700">
@@ -81,13 +81,45 @@ const Practice = () => {
 
       <Progress value={0} max={45} className="mb-8" />
 
-      <div className="flex justify-between items-center mb-8">
-        <Input type="text" placeholder="Search" className="w-64" />
+      <div className="flex justify-between items-center mb-8 bg-gray-800 p-2 rounded-lg">
+        <div className="relative flex-grow mr-4">
+          <Input 
+            type="text" 
+            placeholder="Search" 
+            className="w-full bg-gray-700 text-white border-none pl-10 pr-4 py-2 rounded-md"
+          />
+          <svg
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+        </div>
         <div className="flex space-x-2">
-          <Button variant="outline"><LayoutGrid className="h-4 w-4 mr-2" /> Python <ChevronDown className="h-4 w-4 ml-2" /></Button>
-          <Button variant="outline"><Play className="h-4 w-4" /></Button>
-          <Button variant="outline">📚</Button>
-          <Button variant="outline"><HelpCircle className="h-4 w-4" /></Button>
+          <Button variant="outline" className="bg-blue-600 text-white hover:bg-blue-700 border-none">
+            <LayoutGrid className="h-4 w-4 mr-2" />
+          </Button>
+          <Button variant="outline" className="bg-blue-600 text-white hover:bg-blue-700 border-none">
+            Python
+            <ChevronDown className="h-4 w-4 ml-2" />
+          </Button>
+          <Button variant="outline" className="bg-blue-600 text-white hover:bg-blue-700 border-none">
+            <Play className="h-4 w-4" />
+          </Button>
+          <Button variant="outline" className="bg-red-600 text-white hover:bg-red-700 border-none">
+            <Trash2 className="h-4 w-4" />
+          </Button>
+          <Button variant="outline" className="bg-gray-600 text-white hover:bg-gray-700 border-none">
+            <HelpCircle className="h-4 w-4" />
+          </Button>
         </div>
       </div>
 
