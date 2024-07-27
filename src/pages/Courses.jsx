@@ -87,14 +87,22 @@ const Courses = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-center mb-8">
-        <Button variant="secondary" className="mr-2">
-          <img src="/placeholder.svg" alt="Courses" className="w-4 h-4 mr-2" />
-          Courses
-        </Button>
-        <Button variant="ghost">
-          <img src="/placeholder.svg" alt="Lessons" className="w-4 h-4 mr-2" />
-          Lessons
-        </Button>
+        <div className="inline-flex rounded-md shadow-sm" role="group">
+          <button
+            type="button"
+            className="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
+          >
+            <span className="mr-2">📚</span>
+            Courses
+          </button>
+          <button
+            type="button"
+            className="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
+          >
+            <span className="mr-2">📝</span>
+            Lessons
+          </button>
+        </div>
       </div>
 
       {courseSections.map((section, index) => (
