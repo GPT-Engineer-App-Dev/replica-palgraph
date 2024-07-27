@@ -41,14 +41,36 @@ const Practice = () => {
         </div>
       </div>
 
-      <Tabs defaultValue="core-skills" className="mb-8">
-        <TabsList>
-          <TabsTrigger value="core-skills">🧠 Core Skills</TabsTrigger>
-          <TabsTrigger value="blind-75">👁️ Blind 75</TabsTrigger>
-          <TabsTrigger value="neetcode-150">🚀 NeetCode 150</TabsTrigger>
-          <TabsTrigger value="neetcode-all">🌟 NeetCode All</TabsTrigger>
-        </TabsList>
-      </Tabs>
+      <div className="mb-8 border-b border-gray-700">
+        <Tabs defaultValue="core-skills" className="w-full">
+          <TabsList className="flex w-full bg-transparent">
+            <TabsTrigger 
+              value="core-skills" 
+              className="flex-1 py-2 px-4 text-black bg-white data-[state=active]:bg-white data-[state=active]:text-black hover:text-black"
+            >
+              📚 Core Skills
+            </TabsTrigger>
+            <TabsTrigger 
+              value="blind-75" 
+              className="flex-1 py-2 px-4 text-gray-400 bg-transparent data-[state=active]:bg-white data-[state=active]:text-black hover:text-black"
+            >
+              🧠 Blind 75
+            </TabsTrigger>
+            <TabsTrigger 
+              value="neetcode-150" 
+              className="flex-1 py-2 px-4 text-gray-400 bg-transparent data-[state=active]:bg-white data-[state=active]:text-black hover:text-black"
+            >
+              🚀 NeetCode 150
+            </TabsTrigger>
+            <TabsTrigger 
+              value="neetcode-all" 
+              className="flex-1 py-2 px-4 text-gray-400 bg-transparent data-[state=active]:bg-white data-[state=active]:text-black hover:text-black"
+            >
+              🌟 NeetCode All
+            </TabsTrigger>
+          </TabsList>
+        </Tabs>
+      </div>
 
       <div className="flex justify-between items-center mb-4">
         <span>0 / 45</span>
