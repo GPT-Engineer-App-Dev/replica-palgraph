@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 
-const LessonCard = ({ title, image, description }) => (
-  <div className="bg-gray-800 rounded-lg overflow-hidden">
-    <img src={image} alt={title} className="w-full h-40 object-cover" />
-    <div className="p-4">
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-sm text-gray-400">{description}</p>
+import { Link } from 'react-router-dom';
+
+const LessonCard = ({ title, image, description, to }) => (
+  <Link to={to} className="block">
+    <div className="bg-gray-800 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
+      <img src={image} alt={title} className="w-full h-40 object-cover" />
+      <div className="p-4">
+        <h3 className="text-xl font-semibold mb-2">{title}</h3>
+        <p className="text-sm text-gray-400">{description}</p>
+      </div>
     </div>
-  </div>
+  </Link>
 );
 
 const CourseCard = ({ title, subtitle, description, image, hours, difficulty }) => (
@@ -96,13 +100,13 @@ const Courses = () => {
   ];
 
   const lessons = [
-    { title: "Python Cheat Sheet", image: "/placeholder.svg", description: "Python Cheat Sheet" },
-    { title: "Big-O Notation", image: "/placeholder.svg", description: "Full Course" },
-    { title: "8 Design Patterns Every Programmer Should Know", image: "/placeholder.svg", description: "8 Coding DESIGN Patterns" },
-    { title: "20 Must-Know System Design Concepts", image: "/placeholder.svg", description: "Scale to the MOON" },
-    { title: "30-Day JavaScript Coding Challenge", image: "/placeholder.svg", description: "30-Day Challenge" },
-    { title: "Design a YouTube Clone", image: "/placeholder.svg", description: "Design a YouTube Clone" },
-    { title: "MongoDB Crash Course", image: "/placeholder.svg", description: "MongoDB IN 1 HOUR" },
+    { title: "Python Cheat Sheet", image: "/placeholder.svg", description: "Python Cheat Sheet", to: "/python-cheat-sheet" },
+    { title: "Big-O Notation", image: "/placeholder.svg", description: "Full Course", to: "#" },
+    { title: "8 Design Patterns Every Programmer Should Know", image: "/placeholder.svg", description: "8 Coding DESIGN Patterns", to: "#" },
+    { title: "20 Must-Know System Design Concepts", image: "/placeholder.svg", description: "Scale to the MOON", to: "#" },
+    { title: "30-Day JavaScript Coding Challenge", image: "/placeholder.svg", description: "30-Day Challenge", to: "#" },
+    { title: "Design a YouTube Clone", image: "/placeholder.svg", description: "Design a YouTube Clone", to: "#" },
+    { title: "MongoDB Crash Course", image: "/placeholder.svg", description: "MongoDB IN 1 HOUR", to: "#" },
   ];
 
   return (
