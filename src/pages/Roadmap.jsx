@@ -67,10 +67,14 @@ const Roadmap = () => {
           default: RoadmapNode,
         }}
         fitView
+        defaultEdgeOptions={{
+          style: { stroke: '#94a3b8', strokeWidth: 2 },
+          type: 'smoothstep',
+        }}
       >
         <Controls />
         <MiniMap />
-        <Background color="#aaa" gap={16} />
+        <Background color="#f1f5f9" gap={16} />
       </ReactFlow>
     </div>
   );

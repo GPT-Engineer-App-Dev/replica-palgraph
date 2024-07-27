@@ -4,11 +4,23 @@ import { Progress } from "@/components/ui/progress"
 
 const RoadmapNode = ({ data }) => {
   return (
-    <div className="bg-card text-card-foreground shadow-md rounded-lg p-4 w-48">
-      <Handle type="target" position="top" className="w-2 h-2" />
+    <div className="text-blue-500 w-48">
+      <Handle 
+        type="target" 
+        position="top" 
+        className="w-2 h-2 !bg-blue-500" 
+      />
       <div className="font-semibold mb-2">{data.label}</div>
-      <Progress value={data.progress} className="h-2" />
-      <Handle type="source" position="bottom" className="w-2 h-2" />
+      <Progress 
+        value={data.progress} 
+        className="h-1.5 bg-blue-200" 
+        indicatorClassName="bg-blue-500"
+      />
+      <Handle 
+        type="source" 
+        position="bottom" 
+        className="w-2 h-2 !bg-blue-500" 
+      />
     </div>
   );
 };
