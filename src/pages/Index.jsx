@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+
 const Index = () => {
   return (
     <div className="container mx-auto mt-16 px-4">
