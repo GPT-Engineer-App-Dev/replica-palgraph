@@ -1,7 +1,8 @@
-import { Home, Map, BookOpen, FileText } from "lucide-react";
+import { Home, Map, BookOpen, FileText, Code } from "lucide-react";
 import Index from "./pages/Index.jsx";
 import Roadmap from "./pages/Roadmap.jsx";
 import Courses from "./pages/Courses.jsx";
+import Practice from "./pages/Practice.jsx";
 import PythonCheatSheet from "./pages/PythonCheatSheet.jsx";
 
 /**
@@ -25,6 +26,12 @@ export const navItems = [
     to: "/courses",
     icon: <BookOpen className="h-4 w-4" />,
     page: <Courses />,
+  },
+  {
+    title: "Practice",
+    to: "/practice",
+    icon: <Code className="h-4 w-4" />,
+    page: <Practice />,
   },
   {
     title: "Python Cheat Sheet",
