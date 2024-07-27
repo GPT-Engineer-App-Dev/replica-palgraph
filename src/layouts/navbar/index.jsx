@@ -11,8 +11,8 @@ const Layout = () => {
   };
 
   return (
-    <div className={`min-h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-900'}`}>
-      <header className={`flex justify-between items-center p-4 border-b ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>
+    <div className={`min-h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
+      <header className="flex justify-between items-center p-4 border-b border-gray-700">
         <div className="flex items-center space-x-6">
           <NavLink to="/" className="flex items-center space-x-2">
             <img 

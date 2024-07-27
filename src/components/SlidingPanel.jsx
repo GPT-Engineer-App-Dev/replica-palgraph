@@ -56,10 +56,8 @@ const SlidingPanel = ({ isOpen, onClose, topic }) => {
     ));
   };
 
-  const isDarkMode = document.documentElement.classList.contains('dark');
-
   return (
-    <div className={`fixed inset-y-0 right-0 w-4/5 transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out overflow-y-auto ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
+    <div className={`fixed inset-y-0 right-0 w-4/5 bg-gray-900 text-white transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out overflow-y-auto`}>
       <div className="p-6">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold">{topic}</h2>

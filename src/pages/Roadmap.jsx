@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import ReactFlow, { Background, Controls, MarkerType } from 'reactflow';
 import 'reactflow/dist/style.css';
 import RoadmapNode from '@/components/RoadmapNode';
@@ -56,15 +56,14 @@ const initialEdges = [
 const Roadmap = () => {
   const [isPanelOpen, setIsPanelOpen] = useState(false);
   const [selectedTopic, setSelectedTopic] = useState('');
-  const isDarkMode = document.documentElement.classList.contains('dark');
 
-  const onNodeClick = useCallback((event, node) => {
+  const onNodeClick = (event, node) => {
     setSelectedTopic(node.data.label);
     setIsPanelOpen(true);
-  }, []);
+  };
 
   return (
-    <div className="flex" style={{ width: '100%', height: '100vh', background: isDarkMode ? '#1e1e1e' : '#f0f0f0' }}>
+    <div className="flex" style={{ width: '100%', height: '100vh', background: '#1e1e1e' }}>
       <div className="flex-grow">
         <ReactFlow
           nodes={initialNodes}
@@ -75,16 +74,16 @@ const Roadmap = () => {
           maxZoom={1.5}
           onNodeClick={onNodeClick}
           defaultEdgeOptions={{
-            style: { stroke: isDarkMode ? 'white' : '#333', strokeWidth: 2 },
+            style: { stroke: 'white', strokeWidth: 2 },
             type: 'default',
             animated: true,
             markerEnd: {
               type: MarkerType.ArrowClosed,
-              color: isDarkMode ? 'white' : '#333',
+              color: 'white',
             },
           }}
         >
-          <Background color={isDarkMode ? "#333" : "#e0e0e0"} gap={16} />
+          <Background color="#333" gap={16} />
           <Controls />
         </ReactFlow>
       </div>
