@@ -82,10 +82,16 @@ const SlidingPanel = ({ isOpen, onClose, topic }) => {
                 <th className="py-2">Status</th>
                 <th>Star</th>
                 <th className="cursor-pointer" onClick={() => sortBy('name')}>
-                  Problem {getSortIcon('name')}
+                  <div className="flex items-center space-x-1">
+                    <span>Problem</span>
+                    {getSortIcon('name')}
+                  </div>
                 </th>
                 <th className="cursor-pointer" onClick={() => sortBy('difficulty')}>
-                  Difficulty {getSortIcon('difficulty')}
+                  <div className="flex items-center space-x-1">
+                    <span>Difficulty</span>
+                    {getSortIcon('difficulty')}
+                  </div>
                 </th>
                 <th>Video Solution</th>
                 <th>Code</th>
