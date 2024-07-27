@@ -1,21 +1,11 @@
 import React from 'react';
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/nightOwl';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const CodeBlock = ({ code }) => (
-  <Highlight {...defaultProps} theme={theme} code={code} language="python">
-    {({ className, style, tokens, getLineProps, getTokenProps }) => (
-      <pre className={`${className} p-4 rounded-lg overflow-x-auto`} style={style}>
-        {tokens.map((line, i) => (
-          <div {...getLineProps({ line, key: i })}>
-            {line.map((token, key) => (
-              <span {...getTokenProps({ token, key })} />
-            ))}
-          </div>
-        ))}
-      </pre>
-    )}
-  </Highlight>
+  <SyntaxHighlighter language="python" style={vscDarkPlus} className="rounded-lg">
+    {code}
+  </SyntaxHighlighter>
 );
 
 const PythonCheatSheet = () => {
