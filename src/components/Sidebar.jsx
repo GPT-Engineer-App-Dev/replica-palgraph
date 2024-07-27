@@ -5,7 +5,7 @@ import { Settings, HelpCircle, RotateCcw } from 'lucide-react';
 
 const Sidebar = () => {
   return (
-    <div className="bg-[#1e1e1e] text-white w-64 h-full flex flex-col justify-between p-4">
+    <div className="bg-[#2a2a2a] text-white w-64 h-full flex flex-col justify-between p-4">
       <div>
         <h2 className="text-xl font-semibold mb-4">Select Roadmap</h2>
         <div className="flex mb-4">
