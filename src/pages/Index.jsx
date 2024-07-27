@@ -47,6 +47,8 @@ const Index = () => {
           fitView
           minZoom={0.5}
           maxZoom={2}
+          zoomOnScroll={false}
+          panOnScroll={false}
           defaultEdgeOptions={{
             style: { stroke: 'white', strokeWidth: 1 },
             type: 'default',
@@ -60,7 +62,6 @@ const Index = () => {
           }}
         >
           <Background color="#333" gap={16} />
-          <Controls showInteractive={false} />
         </ReactFlow>
       </div>
     </div>
