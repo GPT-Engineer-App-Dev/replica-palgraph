@@ -30,26 +30,26 @@ const initialNodes = [
 ];
 
 const initialEdges = [
-  { id: 'e1-2', source: '1', target: '2', type: 'smoothstep', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
-  { id: 'e1-3', source: '1', target: '3', type: 'smoothstep', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
-  { id: 'e2-4', source: '2', target: '4', type: 'smoothstep', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
-  { id: 'e2-5', source: '2', target: '5', type: 'smoothstep', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
-  { id: 'e3-6', source: '3', target: '6', type: 'smoothstep', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
-  { id: 'e4-7', source: '4', target: '7', type: 'smoothstep', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
-  { id: 'e5-7', source: '5', target: '7', type: 'smoothstep', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
-  { id: 'e6-7', source: '6', target: '7', type: 'smoothstep', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
-  { id: 'e7-8', source: '7', target: '8', type: 'smoothstep', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
-  { id: 'e7-9', source: '7', target: '9', type: 'smoothstep', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
-  { id: 'e7-10', source: '7', target: '10', type: 'smoothstep', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
-  { id: 'e9-11', source: '9', target: '11', type: 'smoothstep', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
-  { id: 'e9-12', source: '9', target: '12', type: 'smoothstep', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
-  { id: 'e10-13', source: '10', target: '13', type: 'smoothstep', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
-  { id: 'e10-14', source: '10', target: '14', type: 'smoothstep', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
-  { id: 'e13-15', source: '13', target: '15', type: 'smoothstep', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
-  { id: 'e14-16', source: '14', target: '16', type: 'smoothstep', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
-  { id: 'e14-17', source: '14', target: '17', type: 'smoothstep', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
-  { id: 'e16-18', source: '16', target: '18', type: 'smoothstep', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
-  { id: 'e17-18', source: '17', target: '18', type: 'smoothstep', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e1-2', source: '1', target: '2', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e1-3', source: '1', target: '3', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e2-4', source: '2', target: '4', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e2-5', source: '2', target: '5', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e3-6', source: '3', target: '6', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e4-7', source: '4', target: '7', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e5-7', source: '5', target: '7', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e6-7', source: '6', target: '7', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e7-8', source: '7', target: '8', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e7-9', source: '7', target: '9', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e7-10', source: '7', target: '10', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e9-11', source: '9', target: '11', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e9-12', source: '9', target: '12', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e10-13', source: '10', target: '13', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e10-14', source: '10', target: '14', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e13-15', source: '13', target: '15', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e14-16', source: '14', target: '16', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e14-17', source: '14', target: '17', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e16-18', source: '16', target: '18', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
+  { id: 'e17-18', source: '17', target: '18', type: 'default', animated: true, markerEnd: { type: MarkerType.ArrowClosed } },
 ];
 
 const Roadmap = () => {
@@ -65,7 +65,7 @@ const Roadmap = () => {
           maxZoom={1.5}
           defaultEdgeOptions={{
             style: { stroke: 'white', strokeWidth: 2 },
-            type: 'smoothstep',
+            type: 'default',
             animated: true,
             markerEnd: {
               type: MarkerType.ArrowClosed,
