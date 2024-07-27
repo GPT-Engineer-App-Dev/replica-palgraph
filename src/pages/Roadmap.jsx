@@ -56,6 +56,7 @@ const initialEdges = [
 const Roadmap = () => {
   const [isPanelOpen, setIsPanelOpen] = useState(false);
   const [selectedTopic, setSelectedTopic] = useState('');
+  const isDarkMode = document.documentElement.classList.contains('dark');
 
   const onNodeClick = (event, node) => {
     setSelectedTopic(node.data.label);
@@ -63,7 +64,7 @@ const Roadmap = () => {
   };
 
   return (
-    <div className="flex" style={{ width: '100%', height: '100vh', background: '#1e1e1e' }}>
+    <div className="flex" style={{ width: '100%', height: '100vh', background: isDarkMode ? '#1e1e1e' : '#f0f0f0' }}>
       <div className="flex-grow">
         <ReactFlow
           nodes={initialNodes}

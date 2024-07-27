@@ -5,8 +5,10 @@ import { Input } from "@/components/ui/input"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ChevronDown, LayoutGrid, Play, HelpCircle, Trash2 } from 'lucide-react';
 
-const ProblemRow = ({ status, problem, difficulty, isPremium }) => (
-  <div className="flex items-center py-2 border-b border-gray-700">
+const ProblemRow = ({ status, problem, difficulty, isPremium }) => {
+  const isDarkMode = document.documentElement.classList.contains('dark');
+  return (
+  <div className={`flex items-center py-2 border-b ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>
     <input type="checkbox" className="mr-4" checked={status === 'completed'} readOnly />
     <span className="flex-grow">{problem}</span>
     {isPremium && <span className="text-yellow-500 mr-2">🏆</span>}
@@ -21,8 +23,9 @@ const ProblemRow = ({ status, problem, difficulty, isPremium }) => (
 );
 
 const Practice = () => {
+  const isDarkMode = document.documentElement.classList.contains('dark');
   return (
-    <div className="container mx-auto px-4 py-8 bg-gray-900 text-white">
+    <div className={`container mx-auto px-4 py-8 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
       <div className="mb-8">
         <h2 className="text-2xl font-bold mb-4">Courses</h2>
         <div className="grid grid-cols-3 gap-4">
@@ -81,12 +84,12 @@ const Practice = () => {
 
       <Progress value={0} max={45} className="mb-8" />
 
-      <div className="flex justify-between items-center mb-8 bg-gray-800 p-2 rounded-lg">
+      <div className={`flex justify-between items-center mb-8 p-2 rounded-lg ${isDarkMode ? 'bg-gray-800' : 'bg-gray-200'}`}>
         <div className="relative flex-grow mr-4">
           <Input 
             type="text" 
             placeholder="Search" 
-            className="w-full bg-gray-700 text-white border-none pl-10 pr-4 py-2 rounded-md"
+            className={`w-full border-none pl-10 pr-4 py-2 rounded-md ${isDarkMode ? 'bg-gray-700 text-white' : 'bg-white text-gray-900'}`}
           />
           <svg
             className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400"
@@ -124,7 +127,7 @@ const Practice = () => {
       </div>
 
       <div className="flex space-x-4 mb-8">
-        <Button variant="outline" className="bg-gray-800 hover:bg-gray-700 text-white border-none px-4 py-2 rounded-full">
+        <Button variant="outline" className={`hover:bg-opacity-80 border-none px-4 py-2 rounded-full ${isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700' : 'bg-gray-200 text-gray-900 hover:bg-gray-300'}`}>
           <span className="text-yellow-400 mr-2">▌│║</span>
           Algorithms
         </Button>
