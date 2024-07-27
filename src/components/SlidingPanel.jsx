@@ -75,15 +75,15 @@ const SlidingPanel = ({ isOpen, onClose, topic }) => {
           <div className="flex space-x-4">
             <div className="bg-gray-800 p-3 rounded">
               <h4 className="font-semibold">Singly Linked Lists</h4>
-              <p className="text-sm text-blue-400">Data Structures & Algorithms for Beginners</p>
+              <p className="text-sm text-green-400">Data Structures & Algorithms for Beginners</p>
             </div>
             <div className="bg-gray-800 p-3 rounded">
               <h4 className="font-semibold">Doubly Linked Lists</h4>
-              <p className="text-sm text-blue-400">Data Structures & Algorithms for Beginners</p>
+              <p className="text-sm text-green-400">Data Structures & Algorithms for Beginners</p>
             </div>
             <div className="bg-gray-800 p-3 rounded">
               <h4 className="font-semibold">Fast and Slow Pointers</h4>
-              <p className="text-sm text-blue-400">Advanced Algorithms</p>
+              <p className="text-sm text-green-400">Advanced Algorithms</p>
             </div>
           </div>
         </div>
