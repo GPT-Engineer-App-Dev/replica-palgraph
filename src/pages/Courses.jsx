@@ -1,5 +1,14 @@
-import React from 'react';
-import { Button } from "@/components/ui/button";
+import React, { useState } from 'react';
+
+const LessonCard = ({ title, image, description }) => (
+  <div className="bg-gray-800 rounded-lg overflow-hidden">
+    <img src={image} alt={title} className="w-full h-40 object-cover" />
+    <div className="p-4">
+      <h3 className="text-xl font-semibold mb-2">{title}</h3>
+      <p className="text-sm text-gray-400">{description}</p>
+    </div>
+  </div>
+);
 
 const CourseCard = ({ title, subtitle, description, image, hours, difficulty }) => (
   <div className="bg-gray-800 rounded-lg overflow-hidden">
@@ -37,6 +46,8 @@ const CourseSection = ({ title, description, courses }) => (
 );
 
 const Courses = () => {
+  const [activeTab, setActiveTab] = useState('courses');
+
   const courseSections = [
     {
       title: "Data Structures & Algorithms",
@@ -84,20 +95,40 @@ const Courses = () => {
     }
   ];
 
+  const lessons = [
+    { title: "Python Cheat Sheet", image: "/placeholder.svg", description: "Python Cheat Sheet" },
+    { title: "Big-O Notation", image: "/placeholder.svg", description: "Full Course" },
+    { title: "8 Design Patterns Every Programmer Should Know", image: "/placeholder.svg", description: "8 Coding DESIGN Patterns" },
+    { title: "20 Must-Know System Design Concepts", image: "/placeholder.svg", description: "Scale to the MOON" },
+    { title: "30-Day JavaScript Coding Challenge", image: "/placeholder.svg", description: "30-Day Challenge" },
+    { title: "Design a YouTube Clone", image: "/placeholder.svg", description: "Design a YouTube Clone" },
+    { title: "MongoDB Crash Course", image: "/placeholder.svg", description: "MongoDB IN 1 HOUR" },
+  ];
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-center mb-8">
         <div className="inline-flex rounded-md shadow-sm" role="group">
           <button
             type="button"
-            className="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
+            className={`px-4 py-2 text-sm font-medium border rounded-l-lg focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 ${
+              activeTab === 'courses'
+                ? 'text-white bg-gray-900 border-gray-900'
+                : 'text-gray-900 bg-white border-gray-200 hover:bg-gray-100 hover:text-blue-700'
+            }`}
+            onClick={() => setActiveTab('courses')}
           >
             <span className="mr-2">📚</span>
             Courses
           </button>
           <button
             type="button"
-            className="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
+            className={`px-4 py-2 text-sm font-medium border rounded-r-lg focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 ${
+              activeTab === 'lessons'
+                ? 'text-white bg-gray-900 border-gray-900'
+                : 'text-gray-900 bg-white border-gray-200 hover:bg-gray-100 hover:text-blue-700'
+            }`}
+            onClick={() => setActiveTab('lessons')}
           >
             <span className="mr-2">📝</span>
             Lessons
@@ -105,9 +136,17 @@ const Courses = () => {
         </div>
       </div>
 
-      {courseSections.map((section, index) => (
-        <CourseSection key={index} {...section} />
-      ))}
+      {activeTab === 'courses' ? (
+        courseSections.map((section, index) => (
+          <CourseSection key={index} {...section} />
+        ))
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {lessons.map((lesson, index) => (
+            <LessonCard key={index} {...lesson} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
