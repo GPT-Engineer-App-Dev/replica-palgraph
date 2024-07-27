@@ -19,7 +19,6 @@ const Index = () => {
               alt="NeetCode Logo" 
               className="w-8 h-8 transition-transform duration-300 ease-in-out hover:rotate-[15deg]"
             />
-            <h1 className="text-2xl font-bold">NeetCode</h1>
           </div>
           <nav>
             <ul className="flex space-x-4">
@@ -34,7 +33,7 @@ const Index = () => {
           <Button variant="ghost" onClick={toggleDarkMode}>
             {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </Button>
-          <Button variant="outline">Sign in</Button>
+          <Button variant="outline" className="bg-blue-600 text-white hover:bg-blue-500">Sign in</Button>
         </div>
       </header>
       <main className="container mx-auto mt-16 px-4">
