@@ -74,7 +74,7 @@ const Roadmap = () => {
       >
         <Controls />
         <MiniMap />
-        <Background color="#f1f5f9" gap={16} />
+        <Background color="#1e293b" gap={16} />
       </ReactFlow>
     </div>
   );
